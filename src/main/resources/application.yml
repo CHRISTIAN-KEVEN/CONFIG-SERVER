@@ -1,0 +1,25 @@
+server:
+  port: 10091
+
+spring:
+  application:
+    name: CONFIG-SERVER
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations:
+            classpath:/configs/
+#        git:
+#          uri:
+
+eureka:
+  instance:
+    preferred-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:18763/eureka}
